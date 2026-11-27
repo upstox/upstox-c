@@ -79,7 +79,7 @@ int main(void) {
 }
 ```
 
-Every call has the same shape: `<Tag>API_<operationId>(client, <params>)`, e.g. `OrderV3API_placeOrder(client, body, algo_name)` or `HistoryV3API_getIntraDayCandleData(client, key, unit, &interval)`. Pass `NULL` for an optional parameter; optional numbers are pointers (`int *`), so pass the address of a local. Each call returns a heap-allocated response model that you free with its `<model>_free`, or `NULL` on failure.
+Every call has the same shape: `<Tag>API_<operationId>(client, <params>)`, e.g. `OrderV3API_placeOrderV3(client, body, algo_name)` or `HistoryV3API_getIntraDayCandleDataV3(client, key, unit, &interval)`. Pass `NULL` for an optional parameter; optional numbers are pointers (`int *`), so pass the address of a local. Each call returns a heap-allocated response model that you free with its `<model>_free`, or `NULL` on failure.
 
 Call `apiClient_setupGlobalEnv()` once before any client is created (before starting threads) and `apiClient_unsetupGlobalEnv()` once at exit. An `apiClient_t` is not thread-safe; use one per thread.
 
@@ -150,7 +150,7 @@ int main(void) {
         &slice, strdup("NSE_EQ|INE669E01016"), upstox_client_place_order_v3_request_ORDERTYPE_LIMIT,
         upstox_client_place_order_v3_request_TRANSACTIONTYPE_BUY, &disclosed_quantity, &trigger_price, &is_amo, NULL);
 
-    place_order_v3_response_t *resp = OrderV3API_placeOrder(client, order, NULL);
+    place_order_v3_response_t *resp = OrderV3API_placeOrderV3(client, order, NULL);
     if (resp == NULL) {
         printf("Error: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
@@ -181,7 +181,7 @@ A call returns `NULL` when it fails. Then:
 - `client->errorBody` is the raw error JSON from Upstox (error code and message), or `NULL`. It stays valid until the next call on that client.
 
 ```c
-cancel_order_v3_response_t *resp = OrderV3API_cancelOrder(client, "2501211050101", NULL);
+cancel_order_v3_response_t *resp = OrderV3API_cancelOrderV3(client, "2501211050101", NULL);
 if (resp == NULL) {
     fprintf(stderr, "HTTP %ld: %s\n", client->response_code, client->errorBody ? client->errorBody : "");
 }
@@ -225,7 +225,7 @@ int main(void) {
         strdup("NSE_EQ|INE528G01035"), upstox_client_place_order_v3_request_ORDERTYPE_LIMIT,
         upstox_client_place_order_v3_request_TRANSACTIONTYPE_BUY, &disclosed_quantity, &trigger_price, &is_amo, NULL);
 
-    place_order_v3_response_t *resp = OrderV3API_placeOrder(client, order, "your-algo-name");
+    place_order_v3_response_t *resp = OrderV3API_placeOrderV3(client, order, "your-algo-name");
     if (resp == NULL) {
         printf("Error: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
@@ -284,7 +284,7 @@ The [`examples/strategies/`](examples/strategies/) folder is organized by market
 | [Neutral](examples/strategies/neutral/) | Short Straddle, Short Strangle, Iron Butterfly, Batman, Short Iron Condor |
 | [Others](examples/strategies/others/) | Long Straddle, Long Strangle, Call Ratio Spread, Put Ratio Spread, Long Iron Butterfly, Long Iron Condor, Strip, Strap |
 
-Each strategy program selects the Nifty 50 strikes with `InstrumentsAPI_searchInstrument()` and places orders with `OrderV3API_placeOrder()`. Build them with `-DUPSTOX_BUILD_EXAMPLES=ON` and run one with `UPSTOX_ACCESS_TOKEN` set, e.g. `./build/example_strategies_bullish_code_buy_call`; **it places real orders**.
+Each strategy program selects the Nifty 50 strikes with `InstrumentsAPI_searchInstrument()` and places orders with `OrderV3API_placeOrderV3()`. Build them with `-DUPSTOX_BUILD_EXAMPLES=ON` and run one with `UPSTOX_ACCESS_TOKEN` set, e.g. `./build/example_strategies_bullish_code_buy_call`; **it places real orders**.
 
 ## Documentation for API Endpoints
 
@@ -293,7 +293,7 @@ Functions and models are listed in [docs/API_REFERENCE.md](docs/API_REFERENCE.md
 | Functions | Covers |
 |---|---|
 | [`OrderAPI_*`](docs/OrderAPI.md) | v2 orders, order book and details, trades, multi-order, cancel multi-order, exit positions |
-| [`OrderV3API_*`](docs/OrderV3API.md) | v3 orders (`placeOrder`, `modifyOrder`, `cancelOrder`) and GTT orders |
+| [`OrderV3API_*`](docs/OrderV3API.md) | v3 orders (`placeOrderV3`, `modifyOrderV3`, `cancelOrderV3`) and GTT orders |
 | [`PostTradeAPI_*`](docs/PostTradeAPI.md) | trade history by date range |
 | [`HistoryAPI_*`](docs/HistoryAPI.md) / [`HistoryV3API_*`](docs/HistoryV3API.md) | historical and intraday candles (v3 functions end in `V3`) |
 | [`MarketQuoteAPI_*`](docs/MarketQuoteAPI.md) / [`MarketQuoteV3API_*`](docs/MarketQuoteV3API.md) | LTP, full quotes, OHLC and option greeks |

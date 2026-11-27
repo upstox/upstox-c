@@ -11,9 +11,9 @@ int main(void) {
     apiClient_setupGlobalEnv();
     apiClient_t *client = upstox_client_create("{your_access_token}");
 
-    get_expiries_response_t *resp = ExpiredInstrumentAPI_getExpiries(client, "NSE_INDEX|Nifty 50");
+    get_expiries_response_t *resp = ExpiredInstrumentAPI_getExpiriesResponse(client, "NSE_INDEX|Nifty 50");
     if (resp == NULL) {
-        printf("Exception when calling ExpiredInstrumentAPI_getExpiries: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling ExpiredInstrumentAPI_getExpiriesResponse: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         cJSON *json = get_expiries_response_convertToJSON(resp);
         char *out = cJSON_Print(json);

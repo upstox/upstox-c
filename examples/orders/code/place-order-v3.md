@@ -23,9 +23,9 @@ int main(void) {
                                                                    strdup("NSE_FO|43919"), upstox_client_place_order_v3_request_ORDERTYPE_MARKET, upstox_client_place_order_v3_request_TRANSACTIONTYPE_BUY,
                                                                    &disclosed_quantity, &trigger_price, &is_amo, NULL);
 
-    place_order_v3_response_t *resp = OrderV3API_placeOrder(client, body, NULL);
+    place_order_v3_response_t *resp = OrderV3API_placeOrderV3(client, body, NULL);
     if (resp == NULL) {
-        printf("Exception when calling OrderV3API_placeOrder: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling OrderV3API_placeOrderV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -72,9 +72,9 @@ int main(void) {
                                                                    strdup("NSE_FO|43919"), upstox_client_place_order_v3_request_ORDERTYPE_MARKET, upstox_client_place_order_v3_request_TRANSACTIONTYPE_BUY,
                                                                    &disclosed_quantity, &trigger_price, &is_amo, NULL);
 
-    place_order_v3_response_t *resp = OrderV3API_placeOrder(client, body, NULL);
+    place_order_v3_response_t *resp = OrderV3API_placeOrderV3(client, body, NULL);
     if (resp == NULL) {
-        printf("Exception when calling OrderV3API_placeOrder: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling OrderV3API_placeOrderV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");

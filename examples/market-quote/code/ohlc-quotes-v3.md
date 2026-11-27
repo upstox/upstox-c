@@ -13,9 +13,9 @@ int main(void) {
 
     // For a single instrument
 
-    get_market_quote_ohlc_response_v3_t *resp = MarketQuoteV3API_getMarketQuoteOHLC(client, "1d", "NSE_EQ|INE669E01016");
+    get_market_quote_ohlc_response_v3_t *resp = MarketQuoteV3API_getMarketQuoteOHLCV3(client, "1d", "NSE_EQ|INE669E01016");
     if (resp == NULL) {
-        printf("Exception when calling MarketQuoteV3API_getMarketQuoteOHLC: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling MarketQuoteV3API_getMarketQuoteOHLCV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         cJSON *json = get_market_quote_ohlc_response_v3_convertToJSON(resp);
         char *out = cJSON_Print(json);
@@ -46,9 +46,9 @@ int main(void) {
 
     // For multiple instruments
 
-    get_market_quote_ohlc_response_v3_t *resp = MarketQuoteV3API_getMarketQuoteOHLC(client, "1d", "NSE_EQ|INE669E01016,NSE_EQ|INE848E01016");
+    get_market_quote_ohlc_response_v3_t *resp = MarketQuoteV3API_getMarketQuoteOHLCV3(client, "1d", "NSE_EQ|INE669E01016,NSE_EQ|INE848E01016");
     if (resp == NULL) {
-        printf("Exception when calling MarketQuoteV3API_getMarketQuoteOHLC: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling MarketQuoteV3API_getMarketQuoteOHLCV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         cJSON *json = get_market_quote_ohlc_response_v3_convertToJSON(resp);
         char *out = cJSON_Print(json);

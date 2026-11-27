@@ -167,7 +167,7 @@ end:
 }
 
 cancel_order_v3_response_t*
-OrderV3API_cancelOrder(apiClient_t *apiClient, char *order_id, char *X_Algo_Name)
+OrderV3API_cancelOrderV3(apiClient_t *apiClient, char *order_id, char *X_Algo_Name)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = list_createList();
@@ -586,7 +586,7 @@ end:
 }
 
 modify_order_v3_response_t*
-OrderV3API_modifyOrder(apiClient_t *apiClient, modify_order_request_t *modify_order_request, char *X_Algo_Name)
+OrderV3API_modifyOrderV3(apiClient_t *apiClient, modify_order_request_t *modify_order_request, char *X_Algo_Name)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = list_createList();
@@ -874,7 +874,7 @@ end:
 }
 
 place_order_v3_response_t*
-OrderV3API_placeOrder(apiClient_t *apiClient, place_order_v3_request_t *place_order_v3_request, char *X_Algo_Name)
+OrderV3API_placeOrderV3(apiClient_t *apiClient, place_order_v3_request_t *place_order_v3_request, char *X_Algo_Name)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = list_createList();

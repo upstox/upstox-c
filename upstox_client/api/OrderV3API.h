@@ -27,7 +27,7 @@ OrderV3API_cancelGTTOrder(apiClient_t *apiClient, gtt_cancel_order_request_t *gt
 
 
 cancel_order_v3_response_t*
-OrderV3API_cancelOrder(apiClient_t *apiClient, char *order_id, char *X_Algo_Name);
+OrderV3API_cancelOrderV3(apiClient_t *apiClient, char *order_id, char *X_Algo_Name);
 
 
 // Get GTT order details
@@ -47,7 +47,7 @@ OrderV3API_modifyGTTOrder(apiClient_t *apiClient, gtt_modify_order_request_t *gt
 
 
 modify_order_v3_response_t*
-OrderV3API_modifyOrder(apiClient_t *apiClient, modify_order_request_t *modify_order_request, char *X_Algo_Name);
+OrderV3API_modifyOrderV3(apiClient_t *apiClient, modify_order_request_t *modify_order_request, char *X_Algo_Name);
 
 
 // Place GTT order
@@ -59,6 +59,6 @@ OrderV3API_placeGTTOrder(apiClient_t *apiClient, gtt_place_order_request_t *gtt_
 
 
 place_order_v3_response_t*
-OrderV3API_placeOrder(apiClient_t *apiClient, place_order_v3_request_t *place_order_v3_request, char *X_Algo_Name);
+OrderV3API_placeOrderV3(apiClient_t *apiClient, place_order_v3_request_t *place_order_v3_request, char *X_Algo_Name);
 
 

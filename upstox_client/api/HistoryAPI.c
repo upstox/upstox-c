@@ -152,7 +152,7 @@ end:
 // Get OHLC values for all instruments across various timeframes. Historical data can be fetched for the following durations. 1minute: last 1 month candles till endDate 30minute: last 1 year candles till endDate day: last 1 year candles till endDate week: last 10 year candles till endDate month: last 10 year candles till endDate
 //
 get_historical_candle_response_t*
-HistoryAPI_getHistoricalCandleData1(apiClient_t *apiClient, char *instrumentKey, char *interval, char *to_date, char *from_date)
+HistoryAPI_getHistoricalCandleDataRange(apiClient_t *apiClient, char *instrumentKey, char *interval, char *to_date, char *from_date)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;

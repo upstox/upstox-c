@@ -16,9 +16,9 @@ int main(void) {
     char *to_date = "2023-11-13";
     char *from_date = "2023-11-12";
 
-    get_historical_candle_response_t *resp = HistoryAPI_getHistoricalCandleData1(client, instrument_key, interval, to_date, from_date);
+    get_historical_candle_response_t *resp = HistoryAPI_getHistoricalCandleDataRange(client, instrument_key, interval, to_date, from_date);
     if (resp == NULL) {
-        printf("Exception when calling HistoryAPI_getHistoricalCandleData1: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryAPI_getHistoricalCandleDataRange: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -56,9 +56,9 @@ int main(void) {
     char *to_date = "2023-11-13";
     char *from_date = "2023-11-12";
 
-    get_historical_candle_response_t *resp = HistoryAPI_getHistoricalCandleData1(client, instrument_key, interval, to_date, from_date);
+    get_historical_candle_response_t *resp = HistoryAPI_getHistoricalCandleDataRange(client, instrument_key, interval, to_date, from_date);
     if (resp == NULL) {
-        printf("Exception when calling HistoryAPI_getHistoricalCandleData1: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryAPI_getHistoricalCandleDataRange: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -96,9 +96,9 @@ int main(void) {
     char *to_date = "2023-11-13";
     char *from_date = "2023-11-12";
 
-    get_historical_candle_response_t *resp = HistoryAPI_getHistoricalCandleData1(client, instrument_key, interval, to_date, from_date);
+    get_historical_candle_response_t *resp = HistoryAPI_getHistoricalCandleDataRange(client, instrument_key, interval, to_date, from_date);
     if (resp == NULL) {
-        printf("Exception when calling HistoryAPI_getHistoricalCandleData1: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryAPI_getHistoricalCandleDataRange: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -136,9 +136,9 @@ int main(void) {
     char *to_date = "2023-11-13";
     char *from_date = "2023-10-13";
 
-    get_historical_candle_response_t *resp = HistoryAPI_getHistoricalCandleData1(client, instrument_key, interval, to_date, from_date);
+    get_historical_candle_response_t *resp = HistoryAPI_getHistoricalCandleDataRange(client, instrument_key, interval, to_date, from_date);
     if (resp == NULL) {
-        printf("Exception when calling HistoryAPI_getHistoricalCandleData1: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryAPI_getHistoricalCandleDataRange: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -176,9 +176,9 @@ int main(void) {
     char *to_date = "2023-11-13";
     char *from_date = "2022-10-13";
 
-    get_historical_candle_response_t *resp = HistoryAPI_getHistoricalCandleData1(client, instrument_key, interval, to_date, from_date);
+    get_historical_candle_response_t *resp = HistoryAPI_getHistoricalCandleDataRange(client, instrument_key, interval, to_date, from_date);
     if (resp == NULL) {
-        printf("Exception when calling HistoryAPI_getHistoricalCandleData1: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryAPI_getHistoricalCandleDataRange: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");

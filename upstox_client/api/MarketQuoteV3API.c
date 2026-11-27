@@ -260,7 +260,7 @@ end:
 // This API provides the functionality to retrieve the OHLC quotes for one or more instruments.This API returns the OHLC snapshots of up to 500 instruments in one go.
 //
 get_market_quote_ohlc_response_v3_t*
-MarketQuoteV3API_getMarketQuoteOHLC(apiClient_t *apiClient, char *interval, char *instrument_key)
+MarketQuoteV3API_getMarketQuoteOHLCV3(apiClient_t *apiClient, char *interval, char *instrument_key)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
