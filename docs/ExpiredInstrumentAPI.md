@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**ExpiredInstrumentAPI_getExpiredFutureContracts**](ExpiredInstrumentAPI.md#ExpiredInstrumentAPI_getExpiredFutureContracts) | **GET** /v2/expired-instruments/future/contract | Expired instruments - Get future contracts
 [**ExpiredInstrumentAPI_getExpiredHistoricalCandleData**](ExpiredInstrumentAPI.md#ExpiredInstrumentAPI_getExpiredHistoricalCandleData) | **GET** /v2/expired-instruments/historical-candle/{expired_instrument_key}/{interval}/{to_date}/{from_date} | Expired Historical candle data
 [**ExpiredInstrumentAPI_getExpiredOptionContracts**](ExpiredInstrumentAPI.md#ExpiredInstrumentAPI_getExpiredOptionContracts) | **GET** /v2/expired-instruments/option/contract | Get expired option contracts
-[**ExpiredInstrumentAPI_getExpiriesResponse**](ExpiredInstrumentAPI.md#ExpiredInstrumentAPI_getExpiriesResponse) | **GET** /v2/expired-instruments/expiries | Expired instruments - Get expiries
+[**ExpiredInstrumentAPI_getExpiries**](ExpiredInstrumentAPI.md#ExpiredInstrumentAPI_getExpiries) | **GET** /v2/expired-instruments/expiries | Expired instruments - Get expiries
 
 
 # **ExpiredInstrumentAPI_getExpiredFutureContracts**
@@ -108,13 +108,13 @@ OAUTH2
 
 [[Back to top]](#) [Back to API list] [Back to Model list] [Back to README]
 
-# **ExpiredInstrumentAPI_getExpiriesResponse**
+# **ExpiredInstrumentAPI_getExpiries**
 ```c
 // Expired instruments - Get expiries
 //
 // This API provides the functionality to retrieve expiry dates for a given instrument key.
 //
-get_expiries_response_t* ExpiredInstrumentAPI_getExpiriesResponse(apiClient_t *apiClient, char *instrument_key);
+get_expiries_response_t* ExpiredInstrumentAPI_getExpiries(apiClient_t *apiClient, char *instrument_key);
 ```
 
 ### Parameters

@@ -62,10 +62,10 @@ static void place_order(apiClient_t *client, const leg_t *leg, int lots, const c
         strcmp(transaction_type, "BUY") == 0 ? upstox_client_place_order_v3_request_TRANSACTIONTYPE_BUY
                                              : upstox_client_place_order_v3_request_TRANSACTIONTYPE_SELL,
         &disclosed_quantity, &trigger_price, &is_amo, &market_protection);
-    place_order_v3_response_t *resp = OrderV3API_placeOrderV3(client, body, NULL);
+    place_order_v3_response_t *resp = OrderV3API_placeOrder(client, body, NULL);
     place_order_v3_request_free(body);
     if (resp == NULL) {
-        exit_on_error(client, "OrderV3API_placeOrderV3");
+        exit_on_error(client, "OrderV3API_placeOrder");
     }
     printf("%s Order ID: [", label);
     if (resp->data != NULL) {

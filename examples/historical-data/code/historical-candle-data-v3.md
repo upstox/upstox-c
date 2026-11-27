@@ -13,9 +13,9 @@ int main(void) {
 
     int interval = 1;
 
-    get_historical_candle_response_t *resp = HistoryV3API_getHistoricalCandleDataRangeV3(client, "NSE_EQ|INE848E01016", "minutes", &interval, "2025-01-02", "2025-01-01");
+    get_historical_candle_response_t *resp = HistoryV3API_getHistoricalCandleData1(client, "NSE_EQ|INE848E01016", "minutes", &interval, "2025-01-02", "2025-01-01");
     if (resp == NULL) {
-        printf("Exception when calling HistoryV3API_getHistoricalCandleDataRangeV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryV3API_getHistoricalCandleData1: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -50,9 +50,9 @@ int main(void) {
 
     int interval = 3;
 
-    get_historical_candle_response_t *resp = HistoryV3API_getHistoricalCandleDataRangeV3(client, "NSE_EQ|INE848E01016", "minutes", &interval, "2025-01-02", "2025-01-01");
+    get_historical_candle_response_t *resp = HistoryV3API_getHistoricalCandleData1(client, "NSE_EQ|INE848E01016", "minutes", &interval, "2025-01-02", "2025-01-01");
     if (resp == NULL) {
-        printf("Exception when calling HistoryV3API_getHistoricalCandleDataRangeV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryV3API_getHistoricalCandleData1: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -87,9 +87,9 @@ int main(void) {
 
     int interval = 15;
 
-    get_historical_candle_response_t *resp = HistoryV3API_getHistoricalCandleDataRangeV3(client, "NSE_EQ|INE848E01016", "minutes", &interval, "2025-01-04", "2025-01-01");
+    get_historical_candle_response_t *resp = HistoryV3API_getHistoricalCandleData1(client, "NSE_EQ|INE848E01016", "minutes", &interval, "2025-01-04", "2025-01-01");
     if (resp == NULL) {
-        printf("Exception when calling HistoryV3API_getHistoricalCandleDataRangeV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryV3API_getHistoricalCandleData1: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -124,9 +124,9 @@ int main(void) {
 
     int interval = 1;
 
-    get_historical_candle_response_t *resp = HistoryV3API_getHistoricalCandleDataRangeV3(client, "NSE_EQ|INE848E01016", "hours", &interval, "2025-02-01", "2025-01-01");
+    get_historical_candle_response_t *resp = HistoryV3API_getHistoricalCandleData1(client, "NSE_EQ|INE848E01016", "hours", &interval, "2025-02-01", "2025-01-01");
     if (resp == NULL) {
-        printf("Exception when calling HistoryV3API_getHistoricalCandleDataRangeV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryV3API_getHistoricalCandleData1: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -161,9 +161,9 @@ int main(void) {
 
     int interval = 4;
 
-    get_historical_candle_response_t *resp = HistoryV3API_getHistoricalCandleDataRangeV3(client, "NSE_EQ|INE848E01016", "hours", &interval, "2025-02-01", "2025-01-01");
+    get_historical_candle_response_t *resp = HistoryV3API_getHistoricalCandleData1(client, "NSE_EQ|INE848E01016", "hours", &interval, "2025-02-01", "2025-01-01");
     if (resp == NULL) {
-        printf("Exception when calling HistoryV3API_getHistoricalCandleDataRangeV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryV3API_getHistoricalCandleData1: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -198,9 +198,9 @@ int main(void) {
 
     int interval = 1;
 
-    get_historical_candle_response_t *resp = HistoryV3API_getHistoricalCandleDataRangeV3(client, "NSE_EQ|INE848E01016", "days", &interval, "2025-03-01", "2025-01-01");
+    get_historical_candle_response_t *resp = HistoryV3API_getHistoricalCandleData1(client, "NSE_EQ|INE848E01016", "days", &interval, "2025-03-01", "2025-01-01");
     if (resp == NULL) {
-        printf("Exception when calling HistoryV3API_getHistoricalCandleDataRangeV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryV3API_getHistoricalCandleData1: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -235,9 +235,9 @@ int main(void) {
 
     int interval = 1;
 
-    get_historical_candle_response_t *resp = HistoryV3API_getHistoricalCandleDataRangeV3(client, "NSE_EQ|INE848E01016", "weeks", &interval, "2025-01-01", "2024-01-01");
+    get_historical_candle_response_t *resp = HistoryV3API_getHistoricalCandleData1(client, "NSE_EQ|INE848E01016", "weeks", &interval, "2025-01-01", "2024-01-01");
     if (resp == NULL) {
-        printf("Exception when calling HistoryV3API_getHistoricalCandleDataRangeV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryV3API_getHistoricalCandleData1: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -272,9 +272,9 @@ int main(void) {
 
     int interval = 1;
 
-    get_historical_candle_response_t *resp = HistoryV3API_getHistoricalCandleDataRangeV3(client, "NSE_EQ|INE848E01016", "months", &interval, "2025-01-01", "2010-01-01");
+    get_historical_candle_response_t *resp = HistoryV3API_getHistoricalCandleData1(client, "NSE_EQ|INE848E01016", "months", &interval, "2025-01-01", "2010-01-01");
     if (resp == NULL) {
-        printf("Exception when calling HistoryV3API_getHistoricalCandleDataRangeV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryV3API_getHistoricalCandleData1: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");

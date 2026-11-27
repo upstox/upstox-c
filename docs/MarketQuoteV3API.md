@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**MarketQuoteV3API_getFullMarketQuoteV3**](MarketQuoteV3API.md#MarketQuoteV3API_getFullMarketQuoteV3) | **GET** /v3/market-quote/quotes | Market quotes and instruments - Full market quotes
 [**MarketQuoteV3API_getLtp**](MarketQuoteV3API.md#MarketQuoteV3API_getLtp) | **GET** /v3/market-quote/ltp | Market quotes and instruments - LTP quotes.
-[**MarketQuoteV3API_getMarketQuoteOHLCV3**](MarketQuoteV3API.md#MarketQuoteV3API_getMarketQuoteOHLCV3) | **GET** /v3/market-quote/ohlc | Market quotes and instruments - OHLC quotes
+[**MarketQuoteV3API_getMarketQuoteOHLC**](MarketQuoteV3API.md#MarketQuoteV3API_getMarketQuoteOHLC) | **GET** /v3/market-quote/ohlc | Market quotes and instruments - OHLC quotes
 [**MarketQuoteV3API_getMarketQuoteOptionGreek**](MarketQuoteV3API.md#MarketQuoteV3API_getMarketQuoteOptionGreek) | **GET** /v3/market-quote/option-greek | Market quotes and instruments - Option Greek
 
 
@@ -72,13 +72,13 @@ OAUTH2
 
 [[Back to top]](#) [Back to API list] [Back to Model list] [Back to README]
 
-# **MarketQuoteV3API_getMarketQuoteOHLCV3**
+# **MarketQuoteV3API_getMarketQuoteOHLC**
 ```c
 // Market quotes and instruments - OHLC quotes
 //
 // This API provides the functionality to retrieve the OHLC quotes for one or more instruments.This API returns the OHLC snapshots of up to 500 instruments in one go.
 //
-get_market_quote_ohlc_response_v3_t* MarketQuoteV3API_getMarketQuoteOHLCV3(apiClient_t *apiClient, char *interval, char *instrument_key);
+get_market_quote_ohlc_response_v3_t* MarketQuoteV3API_getMarketQuoteOHLC(apiClient_t *apiClient, char *interval, char *instrument_key);
 ```
 
 ### Parameters

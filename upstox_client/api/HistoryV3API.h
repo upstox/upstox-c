@@ -15,7 +15,7 @@
 // Get OHLC values for all instruments for the present trading day with expanded interval options
 //
 get_historical_candle_response_t*
-HistoryV3API_getHistoricalCandleDataRangeV3(apiClient_t *apiClient, char *instrumentKey, char *unit, int *interval, char *to_date, char *from_date);
+HistoryV3API_getHistoricalCandleData1(apiClient_t *apiClient, char *instrumentKey, char *unit, int *interval, char *to_date, char *from_date);
 
 
 // Historical candle data
@@ -23,7 +23,7 @@ HistoryV3API_getHistoricalCandleDataRangeV3(apiClient_t *apiClient, char *instru
 // Get OHLC values for all instruments for the present trading day with expanded interval options.
 //
 get_historical_candle_response_t*
-HistoryV3API_getHistoricalCandleDataV3(apiClient_t *apiClient, char *instrumentKey, char *unit, int *interval, char *to_date);
+HistoryV3API_getHistoricalCandleData(apiClient_t *apiClient, char *instrumentKey, char *unit, int *interval, char *to_date);
 
 
 // Intra day candle data
@@ -31,6 +31,6 @@ HistoryV3API_getHistoricalCandleDataV3(apiClient_t *apiClient, char *instrumentK
 // Get OHLC values for all instruments for the present trading day
 //
 get_intra_day_candle_response_t*
-HistoryV3API_getIntraDayCandleDataV3(apiClient_t *apiClient, char *instrumentKey, char *unit, int *interval);
+HistoryV3API_getIntraDayCandleData(apiClient_t *apiClient, char *instrumentKey, char *unit, int *interval);
 
 

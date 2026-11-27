@@ -20,9 +20,9 @@ int main(void) {
                                                                upstox_client_modify_order_request_ORDERTYPE_LIMIT, &disclosed_quantity,
                                                                &trigger_price, NULL);
 
-    modify_order_v3_response_t *resp = OrderV3API_modifyOrderV3(client, body, NULL);
+    modify_order_v3_response_t *resp = OrderV3API_modifyOrder(client, body, NULL);
     if (resp == NULL) {
-        printf("Exception when calling OrderV3API_modifyOrderV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling OrderV3API_modifyOrder: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");

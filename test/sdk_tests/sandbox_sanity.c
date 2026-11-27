@@ -122,15 +122,15 @@ static int run_sandbox_sanity(apiClient_t *client) {
     PARSE(place_order_v3_request, place_v3, "{\"quantity\":1,\"product\":\"D\",\"validity\":\"DAY\",\"price\":9.12,"
           "\"tag\":\"string\",\"instrument_token\":\"" IDEA_KEY "\",\"order_type\":\"LIMIT\",\"transaction_type\":\"BUY\","
           "\"disclosed_quantity\":0,\"trigger_price\":0.0,\"is_amo\":true,\"slice\":true}");
-    SHOW(place_order_v3_response, OrderV3API_placeOrderV3(c, place_v3, NULL), "Exception when calling OrderApi->place_order");
+    SHOW(place_order_v3_response, OrderV3API_placeOrder(c, place_v3, NULL), "Exception when calling OrderApi->place_order");
     place_order_v3_request_free(place_v3);
 
     PARSE(modify_order_request, modify, "{\"quantity\":3,\"validity\":\"DAY\",\"price\":9.12,\"order_id\":\"250120010373947\","
           "\"order_type\":\"LIMIT\",\"disclosed_quantity\":0,\"trigger_price\":0}");
-    EXPECT(modify_order_v3_response, OrderV3API_modifyOrderV3(c, modify, NULL), "modify order giving wrong response", "UDAPI100010");
+    EXPECT(modify_order_v3_response, OrderV3API_modifyOrder(c, modify, NULL), "modify order giving wrong response", "UDAPI100010");
     modify_order_request_free(modify);
 
-    EXPECT(cancel_order_v3_response, OrderV3API_cancelOrderV3(c, "25012112309073", NULL), "cancel order giving wrong response", "UDAPI100010");
+    EXPECT(cancel_order_v3_response, OrderV3API_cancelOrder(c, "25012112309073", NULL), "cancel order giving wrong response", "UDAPI100010");
 
     printf("%d checks, %d failed\n", checks, failed);
     return failed;
