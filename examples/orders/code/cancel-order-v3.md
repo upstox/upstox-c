@@ -11,9 +11,9 @@ int main(void) {
     apiClient_setupGlobalEnv();
     apiClient_t *client = upstox_client_create("{your_access_token}");
 
-    cancel_order_v3_response_t *resp = OrderV3API_cancelOrderV3(client, "2501211050101", NULL);
+    cancel_order_v3_response_t *resp = OrderV3API_cancelOrder(client, "2501211050101", NULL);
     if (resp == NULL) {
-        printf("Exception when calling OrderV3API_cancelOrderV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling OrderV3API_cancelOrder: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");

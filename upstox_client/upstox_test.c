@@ -171,7 +171,7 @@ static void test_snake_case_body_and_double_prices(void) {
     cJSON_Delete(json);
     CHECK(req && req->price && *req->price == 2345.65, "price should round-trip exactly as a double");
     pthread_t t = server_expect(&s, 200, "{\"status\":\"success\",\"data\":{\"order_ids\":[\"1\"]}}");
-    place_order_v3_response_t *r = OrderV3API_placeOrderV3(c, req, NULL);
+    place_order_v3_response_t *r = OrderV3API_placeOrder(c, req, NULL);
     pthread_join(t, NULL);
     CHECK(strstr(s.request, "POST /v3/order/place ") != NULL, "path: %s", s.request);
     CHECK(strstr(s.request, "\"instrument_token\":\"NSE_EQ|INE669E01016\"") != NULL, "body: %s", s.request);

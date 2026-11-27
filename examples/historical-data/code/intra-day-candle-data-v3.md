@@ -13,9 +13,9 @@ int main(void) {
 
     int interval = 1;
 
-    get_intra_day_candle_response_t *resp = HistoryV3API_getIntraDayCandleDataV3(client, "NSE_EQ|INE848E01016", "minutes", &interval);
+    get_intra_day_candle_response_t *resp = HistoryV3API_getIntraDayCandleData(client, "NSE_EQ|INE848E01016", "minutes", &interval);
     if (resp == NULL) {
-        printf("Exception when calling HistoryV3API_getIntraDayCandleDataV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryV3API_getIntraDayCandleData: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -50,9 +50,9 @@ int main(void) {
 
     int interval = 3;
 
-    get_intra_day_candle_response_t *resp = HistoryV3API_getIntraDayCandleDataV3(client, "NSE_EQ|INE848E01016", "minutes", &interval);
+    get_intra_day_candle_response_t *resp = HistoryV3API_getIntraDayCandleData(client, "NSE_EQ|INE848E01016", "minutes", &interval);
     if (resp == NULL) {
-        printf("Exception when calling HistoryV3API_getIntraDayCandleDataV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryV3API_getIntraDayCandleData: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -87,9 +87,9 @@ int main(void) {
 
     int interval = 5;
 
-    get_intra_day_candle_response_t *resp = HistoryV3API_getIntraDayCandleDataV3(client, "NSE_EQ|INE848E01016", "minutes", &interval);
+    get_intra_day_candle_response_t *resp = HistoryV3API_getIntraDayCandleData(client, "NSE_EQ|INE848E01016", "minutes", &interval);
     if (resp == NULL) {
-        printf("Exception when calling HistoryV3API_getIntraDayCandleDataV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryV3API_getIntraDayCandleData: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -124,9 +124,9 @@ int main(void) {
 
     int interval = 15;
 
-    get_intra_day_candle_response_t *resp = HistoryV3API_getIntraDayCandleDataV3(client, "NSE_EQ|INE848E01016", "minutes", &interval);
+    get_intra_day_candle_response_t *resp = HistoryV3API_getIntraDayCandleData(client, "NSE_EQ|INE848E01016", "minutes", &interval);
     if (resp == NULL) {
-        printf("Exception when calling HistoryV3API_getIntraDayCandleDataV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryV3API_getIntraDayCandleData: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -161,9 +161,9 @@ int main(void) {
 
     int interval = 30;
 
-    get_intra_day_candle_response_t *resp = HistoryV3API_getIntraDayCandleDataV3(client, "NSE_EQ|INE848E01016", "minutes", &interval);
+    get_intra_day_candle_response_t *resp = HistoryV3API_getIntraDayCandleData(client, "NSE_EQ|INE848E01016", "minutes", &interval);
     if (resp == NULL) {
-        printf("Exception when calling HistoryV3API_getIntraDayCandleDataV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryV3API_getIntraDayCandleData: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -198,9 +198,9 @@ int main(void) {
 
     int interval = 1;
 
-    get_intra_day_candle_response_t *resp = HistoryV3API_getIntraDayCandleDataV3(client, "NSE_EQ|INE848E01016", "hours", &interval);
+    get_intra_day_candle_response_t *resp = HistoryV3API_getIntraDayCandleData(client, "NSE_EQ|INE848E01016", "hours", &interval);
     if (resp == NULL) {
-        printf("Exception when calling HistoryV3API_getIntraDayCandleDataV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryV3API_getIntraDayCandleData: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -235,9 +235,9 @@ int main(void) {
 
     int interval = 2;
 
-    get_intra_day_candle_response_t *resp = HistoryV3API_getIntraDayCandleDataV3(client, "NSE_EQ|INE848E01016", "hours", &interval);
+    get_intra_day_candle_response_t *resp = HistoryV3API_getIntraDayCandleData(client, "NSE_EQ|INE848E01016", "hours", &interval);
     if (resp == NULL) {
-        printf("Exception when calling HistoryV3API_getIntraDayCandleDataV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryV3API_getIntraDayCandleData: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");
@@ -272,9 +272,9 @@ int main(void) {
 
     int interval = 1;
 
-    get_intra_day_candle_response_t *resp = HistoryV3API_getIntraDayCandleDataV3(client, "NSE_EQ|INE848E01016", "days", &interval);
+    get_intra_day_candle_response_t *resp = HistoryV3API_getIntraDayCandleData(client, "NSE_EQ|INE848E01016", "days", &interval);
     if (resp == NULL) {
-        printf("Exception when calling HistoryV3API_getIntraDayCandleDataV3: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+        printf("Exception when calling HistoryV3API_getIntraDayCandleData: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
     } else {
         if (resp->data == NULL) {
             printf("no data returned\n");

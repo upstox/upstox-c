@@ -41,6 +41,6 @@ ExpiredInstrumentAPI_getExpiredOptionContracts(apiClient_t *apiClient, char *ins
 // This API provides the functionality to retrieve expiry dates for a given instrument key.
 //
 get_expiries_response_t*
-ExpiredInstrumentAPI_getExpiriesResponse(apiClient_t *apiClient, char *instrument_key);
+ExpiredInstrumentAPI_getExpiries(apiClient_t *apiClient, char *instrument_key);
 
 

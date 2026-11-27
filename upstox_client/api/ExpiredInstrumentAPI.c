@@ -459,7 +459,7 @@ end:
 // This API provides the functionality to retrieve expiry dates for a given instrument key.
 //
 get_expiries_response_t*
-ExpiredInstrumentAPI_getExpiriesResponse(apiClient_t *apiClient, char *instrument_key)
+ExpiredInstrumentAPI_getExpiries(apiClient_t *apiClient, char *instrument_key)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;

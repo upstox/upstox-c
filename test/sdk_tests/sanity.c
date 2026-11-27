@@ -486,16 +486,16 @@ static void order_v3(void) {
 
     place_order_v3_request_t *place;
     PARSE(place_order_v3_request, place, PLACE_V3_JSON);
-    SHOW(place_order_v3_response, OrderV3API_placeOrderV3(c, place, ALGO),
+    SHOW(place_order_v3_response, OrderV3API_placeOrder(c, place, ALGO),
          "place order v3 => ", "Exception when calling OrderApi->place_orderV3", 1);
     place_order_v3_request_free(place);
 
     modify_order_request_t *modify;
     PARSE(modify_order_request, modify, MISSING_V3_MODIFY_JSON);
-    EXPECT(modify_order_v3_response, OrderV3API_modifyOrderV3(c, modify, ALGO), "modify v3 giving error", "UDAPI100010");
+    EXPECT(modify_order_v3_response, OrderV3API_modifyOrder(c, modify, ALGO), "modify v3 giving error", "UDAPI100010");
     modify_order_request_free(modify);
 
-    EXPECT(cancel_order_v3_response, OrderV3API_cancelOrderV3(c, MISSING_V3_CANCEL_ID, ALGO), "cancel v3 giving error", "UDAPI100010");
+    EXPECT(cancel_order_v3_response, OrderV3API_cancelOrder(c, MISSING_V3_CANCEL_ID, ALGO), "cancel v3 giving error", "UDAPI100010");
 }
 
 // OptionsApi block.
@@ -527,19 +527,19 @@ static void mtf_positions(void) {
 // HistoryV3Api block.
 static void history_v3(void) {
     const char *exc = "Exception when calling historical v3 api";
-    OK(get_historical_candle_response, HistoryV3API_getHistoricalCandleDataV3(c, IDEA_KEY, "minutes", &(int){1}, "2025-01-02"),
+    OK(get_historical_candle_response, HistoryV3API_getHistoricalCandleData(c, IDEA_KEY, "minutes", &(int){1}, "2025-01-02"),
        exc, "error in get_historical_candle_data api");
     OK(get_historical_candle_response,
-       HistoryV3API_getHistoricalCandleDataRangeV3(c, IDEA_KEY, "minutes", &(int){1}, "2025-01-02", "2025-01-02"),
+       HistoryV3API_getHistoricalCandleDataRange(c, IDEA_KEY, "minutes", &(int){1}, "2025-01-02", "2025-01-02"),
        exc, "error in get_historical_candle_data1 api");
-    OK(get_intra_day_candle_response, HistoryV3API_getIntraDayCandleDataV3(c, IDEA_KEY, "minutes", &(int){1}),
+    OK(get_intra_day_candle_response, HistoryV3API_getIntraDayCandleData(c, IDEA_KEY, "minutes", &(int){1}),
        exc, "error in get_intra_day_candle_data api");
 }
 
 // MarketQuoteV3Api block; Python reuses the ohlc message for option greeks.
 static void market_quote_v3(void) {
     const char *exc = "Exception when calling market quote v3 api";
-    OK(get_market_quote_ohlc_response_v3, MarketQuoteV3API_getMarketQuoteOHLCV3(c, "I1", IDEA_KEY),
+    OK(get_market_quote_ohlc_response_v3, MarketQuoteV3API_getMarketQuoteOHLC(c, "I1", IDEA_KEY),
        exc, "error in get_market_quote_ohlc api");
     OK(get_market_quote_option_greek_response_v3, MarketQuoteV3API_getMarketQuoteOptionGreek(c, "NSE_FO|38604,NSE_FO|49210"),
        exc, "error in get_market_quote_ohlc api");
@@ -549,7 +549,7 @@ static void market_quote_v3(void) {
 // ExpiredInstrumentApi block.
 static void expired_instruments(void) {
     const char *exc = "Exception when calling expired instrument v3 api";
-    OK(get_expiries_response, ExpiredInstrumentAPI_getExpiriesResponse(c, NIFTY_KEY), exc, "error in get_expiries");
+    OK(get_expiries_response, ExpiredInstrumentAPI_getExpiries(c, NIFTY_KEY), exc, "error in get_expiries");
     OK(get_option_contract_response, ExpiredInstrumentAPI_getExpiredOptionContracts(c, NIFTY_KEY, "2025-04-30"),
        exc, "error in get_expired_option_contracts");
     OK(get_expired_futures_contract_response, ExpiredInstrumentAPI_getExpiredFutureContracts(c, NIFTY_KEY, "2025-04-24"),
@@ -608,16 +608,16 @@ static void algo_name(void) {
 
     place_order_v3_request_t *place_v3;
     PARSE(place_order_v3_request, place_v3, PLACE_V3_JSON);
-    SHOW(place_order_v3_response, OrderV3API_placeOrderV3(c, place_v3, ALGO),
+    SHOW(place_order_v3_response, OrderV3API_placeOrder(c, place_v3, ALGO),
          "[ok] place_order V3 with algo_name: Success - ", "[ok] place_order V3 with algo_name: Exception handled", 0);
     place_order_v3_request_free(place_v3);
 
     PARSE(modify_order_request, modify, MISSING_V3_MODIFY_JSON);
-    EXPECT_ALGO(modify_order_v3_response, OrderV3API_modifyOrderV3(c, modify, ALGO), "modify_order V3 with algo_name",
+    EXPECT_ALGO(modify_order_v3_response, OrderV3API_modifyOrder(c, modify, ALGO), "modify_order V3 with algo_name",
                 "modify V3 with algo_name giving error", "UDAPI100010");
     modify_order_request_free(modify);
 
-    EXPECT_ALGO(cancel_order_v3_response, OrderV3API_cancelOrderV3(c, MISSING_V3_CANCEL_ID, ALGO), "cancel_order V3 with algo_name",
+    EXPECT_ALGO(cancel_order_v3_response, OrderV3API_cancelOrder(c, MISSING_V3_CANCEL_ID, ALGO), "cancel_order V3 with algo_name",
                 "cancel V3 with algo_name giving error", "UDAPI100010");
 
     printf("\n--- GTT Tests with algo_name ---\n");

@@ -5,12 +5,12 @@ All URIs are relative to *https://api.upstox.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**OrderV3API_cancelGTTOrder**](OrderV3API.md#OrderV3API_cancelGTTOrder) | **DELETE** /v3/order/gtt/cancel | Cancel GTT order
-[**OrderV3API_cancelOrderV3**](OrderV3API.md#OrderV3API_cancelOrderV3) | **DELETE** /v3/order/cancel | 
+[**OrderV3API_cancelOrder**](OrderV3API.md#OrderV3API_cancelOrder) | **DELETE** /v3/order/cancel | 
 [**OrderV3API_getGttOrderDetails**](OrderV3API.md#OrderV3API_getGttOrderDetails) | **GET** /v3/order/gtt | Get GTT order details
 [**OrderV3API_modifyGTTOrder**](OrderV3API.md#OrderV3API_modifyGTTOrder) | **PUT** /v3/order/gtt/modify | Modify GTT order
-[**OrderV3API_modifyOrderV3**](OrderV3API.md#OrderV3API_modifyOrderV3) | **PUT** /v3/order/modify | 
+[**OrderV3API_modifyOrder**](OrderV3API.md#OrderV3API_modifyOrder) | **PUT** /v3/order/modify | 
 [**OrderV3API_placeGTTOrder**](OrderV3API.md#OrderV3API_placeGTTOrder) | **POST** /v3/order/gtt/place | Place GTT order
-[**OrderV3API_placeOrderV3**](OrderV3API.md#OrderV3API_placeOrderV3) | **POST** /v3/order/place | 
+[**OrderV3API_placeOrder**](OrderV3API.md#OrderV3API_placeOrder) | **POST** /v3/order/place | 
 
 
 # **OrderV3API_cancelGTTOrder**
@@ -46,9 +46,9 @@ OAUTH2
 
 [[Back to top]](#) [Back to API list] [Back to Model list] [Back to README]
 
-# **OrderV3API_cancelOrderV3**
+# **OrderV3API_cancelOrder**
 ```c
-cancel_order_v3_response_t* OrderV3API_cancelOrderV3(apiClient_t *apiClient, char *order_id, char *X_Algo_Name);
+cancel_order_v3_response_t* OrderV3API_cancelOrder(apiClient_t *apiClient, char *order_id, char *X_Algo_Name);
 ```
 
 ### Parameters
@@ -138,9 +138,9 @@ OAUTH2
 
 [[Back to top]](#) [Back to API list] [Back to Model list] [Back to README]
 
-# **OrderV3API_modifyOrderV3**
+# **OrderV3API_modifyOrder**
 ```c
-modify_order_v3_response_t* OrderV3API_modifyOrderV3(apiClient_t *apiClient, modify_order_request_t *modify_order_request, char *X_Algo_Name);
+modify_order_v3_response_t* OrderV3API_modifyOrder(apiClient_t *apiClient, modify_order_request_t *modify_order_request, char *X_Algo_Name);
 ```
 
 ### Parameters
@@ -199,9 +199,9 @@ OAUTH2
 
 [[Back to top]](#) [Back to API list] [Back to Model list] [Back to README]
 
-# **OrderV3API_placeOrderV3**
+# **OrderV3API_placeOrder**
 ```c
-place_order_v3_response_t* OrderV3API_placeOrderV3(apiClient_t *apiClient, place_order_v3_request_t *place_order_v3_request, char *X_Algo_Name);
+place_order_v3_response_t* OrderV3API_placeOrder(apiClient_t *apiClient, place_order_v3_request_t *place_order_v3_request, char *X_Algo_Name);
 ```
 
 ### Parameters

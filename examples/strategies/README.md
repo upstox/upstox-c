@@ -2,7 +2,7 @@
 
 Ready-to-run C programs for common Nifty 50 options strategies using the Upstox C SDK.
 
-Each program (`<category>/code/<strategy>.c`) finds the required option legs via `InstrumentsAPI_searchInstrument()` and places market orders via `OrderV3API_placeOrderV3()`. Build them from the repository root, then run one with your token in `UPSTOX_ACCESS_TOKEN`:
+Each program (`<category>/code/<strategy>.c`) finds the required option legs via `InstrumentsAPI_searchInstrument()` and places market orders via `OrderV3API_placeOrder()`. Build them from the repository root, then run one with your token in `UPSTOX_ACCESS_TOKEN`:
 
 ```bash
 cmake -S . -B build -DUPSTOX_BUILD_EXAMPLES=ON

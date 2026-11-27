@@ -53,7 +53,7 @@ Every program follows the same pattern: call `apiClient_setupGlobalEnv()`, creat
 
 ### Options Strategies
 
-Each strategy program searches for the required Nifty 50 option legs using the Instruments API (`InstrumentsAPI_searchInstrument`) and places market orders via the v3 Order API (`OrderV3API_placeOrderV3`). Build them with `-DUPSTOX_BUILD_EXAMPLES=ON`; they read the token from `UPSTOX_ACCESS_TOKEN` and place real orders.
+Each strategy program searches for the required Nifty 50 option legs using the Instruments API (`InstrumentsAPI_searchInstrument`) and places market orders via the v3 Order API (`OrderV3API_placeOrder`). Build them with `-DUPSTOX_BUILD_EXAMPLES=ON`; they read the token from `UPSTOX_ACCESS_TOKEN` and place real orders.
 
 #### [Bullish](strategies/bullish/)
 
