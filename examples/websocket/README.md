@@ -81,9 +81,10 @@ You authenticate with an access token, create the streamer with instrument keys 
 4. `market_data_streamer_v3_subscribe(streamer, keys, count, mode)`: subscribes the keys in the given mode; -1 when not connected.
 5. `market_data_streamer_v3_unsubscribe(streamer, keys, count)`: stops updates for the keys.
 6. `market_data_streamer_v3_change_mode(streamer, keys, count, mode)`: switches already subscribed keys to another mode.
-7. `market_data_streamer_v3_disconnect(streamer)`: closes the connection without reconnecting and waits for the background thread.
-8. `market_data_streamer_v3_auto_reconnect(streamer, enable, interval_seconds, retry_count)`: configures auto-reconnect. Defaults: enabled, 1 second, 5 retries.
-9. `market_data_streamer_v3_free(streamer)`: disconnects if needed and frees the streamer.
+7. `market_data_streamer_v3_clear_subscriptions(streamer)`: forgets tracked subscriptions so they are not replayed on reconnect.
+8. `market_data_streamer_v3_disconnect(streamer)`: closes the connection without reconnecting and waits for the background thread.
+9. `market_data_streamer_v3_auto_reconnect(streamer, enable, interval_seconds, retry_count)`: configures auto-reconnect. Defaults: enabled, 1 second, 5 retries.
+10. `market_data_streamer_v3_free(streamer)`: disconnects if needed and frees the streamer.
 
 ### Callbacks
 

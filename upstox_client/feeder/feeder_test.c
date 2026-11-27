@@ -341,7 +341,7 @@ static void ws_accept_key(const char *key, char out[32]) {
     base64(digest, 20, out);
 }
 
-enum { SCENARIO_MARKET, SCENARIO_RETRIES, SCENARIO_PORTFOLIO };
+enum { SCENARIO_MARKET, SCENARIO_RETRIES, SCENARIO_PORTFOLIO, SCENARIO_CLEARED };
 
 typedef struct mock_server_t {
     int scenario;
@@ -551,6 +551,11 @@ static void *mock_server_run(void *arg) {
         await_close(s, fd);
         goto done;
     }
+    if (s->scenario == SCENARIO_CLEARED) {
+        send_feed(fd, 2500.5);
+        await_close(s, fd); // records any subscribe the client sends
+        goto done;
+    }
     STEP(record_data_frame(s, fd) == 0, "initial subscribe");
     send_feed(fd, 2500.5);
     if (s->scenario == SCENARIO_RETRIES) {
@@ -650,6 +655,28 @@ static void test_market_end_to_end(void) {
     apiClient_free(client);
 }
 
+// clear_subscriptions drops the initial keys, so the open sends no subscribe (as in Python).
+static void test_clear_subscriptions(void) {
+    market_data_streamer_v3_clear_subscriptions(NULL);
+    mock_server_t srv;
+    pthread_t thread;
+    CHECK(mock_server_start(&srv, SCENARIO_CLEARED, &thread) == 0);
+    apiClient_t *client = mock_client(srv.port);
+    const char *keys[] = { "NSE_EQ|INE002A01018", "NSE_INDEX|Nifty 50" };
+    market_data_streamer_v3_t *s = market_data_streamer_v3_create(client, keys, 2, UPSTOX_MODE_FULL);
+    market_data_streamer_v3_set_callbacks(s, &callbacks, on_feed);
+    reset_events();
+    market_data_streamer_v3_clear_subscriptions(s);
+    CHECK(market_data_streamer_v3_connect(s) == 0);
+    CHECK(wait_for(&ev.messages, 1));
+    market_data_streamer_v3_disconnect(s);
+    market_data_streamer_v3_free(s);
+    mock_server_stop(&srv, thread);
+    CHECK(srv.frame_count == 0);
+    CHECK(srv.close_code == 1000);
+    apiClient_free(client);
+}
+
 // Every reconnect attempt fails: attempts are reported, then auto_reconnect_stopped.
 static void test_retries_exhausted(void) {
     mock_server_t srv;
@@ -734,6 +761,7 @@ int main(void) {
     if (upstox_ws_curl_has_wss()) {
         test_connect_failures();
         test_market_end_to_end();
+        test_clear_subscriptions();
         test_retries_exhausted();
         test_portfolio_end_to_end();
     } else {

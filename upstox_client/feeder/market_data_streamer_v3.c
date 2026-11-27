@@ -267,6 +267,17 @@ int market_data_streamer_v3_change_mode(market_data_streamer_v3_t *streamer, con
     return rc;
 }
 
+void market_data_streamer_v3_clear_subscriptions(market_data_streamer_v3_t *streamer) {
+    if (streamer == NULL) {
+        return;
+    }
+    pthread_mutex_lock(&streamer->ws.lock);
+    for (int i = 0; i < MODE_COUNT; i++) {
+        key_set_free(&streamer->subscriptions[i]);
+    }
+    pthread_mutex_unlock(&streamer->ws.lock);
+}
+
 void market_data_streamer_v3_auto_reconnect(market_data_streamer_v3_t *streamer, int enable, int interval_seconds, int retry_count) {
     if (streamer) {
         upstox_ws_auto_reconnect(&streamer->ws, enable, interval_seconds, retry_count);

@@ -35,6 +35,9 @@ int market_data_streamer_v3_unsubscribe(market_data_streamer_v3_t *streamer, con
 int market_data_streamer_v3_change_mode(market_data_streamer_v3_t *streamer, const char *const *instrument_keys, size_t count,
                                         const char *mode);
 
+// Forgets the tracked subscriptions so a reconnect does not resubscribe them; sends nothing to the server.
+void market_data_streamer_v3_clear_subscriptions(market_data_streamer_v3_t *streamer);
+
 // Reconnects after an abnormal close, retry_count times interval_seconds apart (default: on, 1 s, 5 tries).
 void market_data_streamer_v3_auto_reconnect(market_data_streamer_v3_t *streamer, int enable, int interval_seconds, int retry_count);
 
