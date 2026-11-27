@@ -1,4 +1,4 @@
-# Upstox C SDK for API v2
+# Upstox C SDK
 
 ## Introduction
 
@@ -6,7 +6,6 @@ The official C client for communicating with the <a href="https://upstox.com/tra
 
 Upstox API is a set of rest APIs that provide data required to build a complete investment and trading platform. Execute orders in real time, manage user portfolio, stream live market data (using Websocket), and more, with the easy to understand API collection.
 
-- API version: v2
 - Package version: 1.0.0 (`UPSTOX_SDK_VERSION` in `upstox_client/upstox.h`)
 - Build package: org.openapitools.codegen.languages.CLibcurlClientCodegen
 
@@ -229,53 +228,6 @@ Parse `errorBody` with `cJSON_Parse` to read `errors[0].errorCode` and `errors[0
 - String parameters of API calls (`char *order_id`, ...) are copied; string literals are fine there.
 
 Enum fields use `upstox_client_<model>_<FIELD>_e` values (e.g. `upstox_client_place_order_v3_request_PRODUCT_D`), and each enum has `<model>_<field>_ToString` / `_FromString`. Map responses (market quotes) are `list_t`s of `keyValuePair_t` whose `value` is the model.
-
-## Algo Name Support
-
-The SDK supports passing an algorithm name for order tracking and management. Order functions take it as their last parameter (`X_Algo_Name`) and send it as the `X-Algo-Name` header; pass `NULL` to omit it.
-
-```c
-#include <stdio.h>
-#include <string.h>
-#include "upstox_client/upstox.h"
-#include "upstox_client/api/OrderV3API.h"
-
-int main(void) {
-    apiClient_setupGlobalEnv();
-    apiClient_t *client = upstox_client_create("{your_access_token}");
-
-    int quantity = 1;
-    double price = 20;
-    int slice = 1;
-    int disclosed_quantity = 0;
-    double trigger_price = 0;
-    int is_amo = 0;
-    place_order_v3_request_t *order = place_order_v3_request_create(
-        &quantity, upstox_client_place_order_v3_request_PRODUCT_D, upstox_client_place_order_v3_request_VALIDITY_DAY, &price, NULL, &slice,
-        strdup("NSE_EQ|INE528G01035"), upstox_client_place_order_v3_request_ORDERTYPE_LIMIT,
-        upstox_client_place_order_v3_request_TRANSACTIONTYPE_BUY, &disclosed_quantity, &trigger_price, &is_amo, NULL);
-
-    place_order_v3_response_t *resp = OrderV3API_placeOrder(client, order, "your-algo-name");
-    if (resp == NULL) {
-        printf("Error: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
-    } else {
-        if (resp->data != NULL) {
-            listEntry_t *entry;
-            list_ForEach(entry, resp->data->order_ids) {
-                printf("%s\n", (char *)entry->data);
-            }
-        }
-        place_order_v3_response_free(resp);
-    }
-    place_order_v3_request_free(order);
-
-    apiClient_free(client);
-    apiClient_unsetupGlobalEnv();
-    return 0;
-}
-```
-
-Other order functions (modify, cancel, multi-order, cancel multi-order, exit positions and GTT) take `X_Algo_Name` the same way.
 
 ## Market Protection
 
