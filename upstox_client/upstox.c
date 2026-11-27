@@ -73,7 +73,9 @@ void upstox_keep_error_body(apiClient_t *apiClient) {
     if (apiClient->response_code >= 200 && apiClient->response_code < 300) {
         return;
     }
-    if (apiClient->dataReceived != NULL) {
-        apiClient->errorBody = strndup(apiClient->dataReceived, apiClient->dataReceivedLen);
+    // malloc + memcpy rather than strndup, which MSVC lacks
+    if (apiClient->dataReceived != NULL && (apiClient->errorBody = malloc(apiClient->dataReceivedLen + 1)) != NULL) {
+        memcpy(apiClient->errorBody, apiClient->dataReceived, apiClient->dataReceivedLen);
+        apiClient->errorBody[apiClient->dataReceivedLen] = '\0';
     }
 }

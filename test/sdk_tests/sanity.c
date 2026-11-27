@@ -254,7 +254,11 @@ static void *list_first(list_t *l) {
 static int in_market_hours(void) {
     time_t now = time(NULL) + 5 * 3600 + 1800;
     struct tm t;
+#ifdef _WIN32
+    gmtime_s(&t, &now);
+#else
     gmtime_r(&now, &t);
+#endif
     int m = t.tm_hour * 60 + t.tm_min;
     return m >= 9 * 60 && m <= 15 * 60 + 30;
 }
