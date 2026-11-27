@@ -1,0 +1,46 @@
+# instrument_data_t
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | **char \*** |  | [optional] 
+**segment** | **char \*** |  | [optional] 
+**exchange** | **char \*** |  | [optional] 
+**isin** | **char \*** |  | [optional] 
+**expiry** | **char \*** |  | [optional] 
+**country** | **char \*** |  | [optional] 
+**latency** | **char \*** |  | [optional] 
+**description** | **char \*** |  | [optional] 
+**currency** | **char \*** |  | [optional] 
+**weekly** | **int** |  | [optional] 
+**instrument_key** | **char \*** |  | [optional] 
+**exchange_token** | **char \*** |  | [optional] 
+**trading_symbol** | **char \*** |  | [optional] 
+**short_name** | **char \*** |  | [optional] 
+**tick_size** | **double** |  | [optional] 
+**lot_size** | **long** |  | [optional] 
+**instrument_type** | **char \*** |  | [optional] 
+**freeze_quantity** | **double** |  | [optional] 
+**underlying_key** | **char \*** |  | [optional] 
+**underlying_type** | **char \*** |  | [optional] 
+**underlying_symbol** | **char \*** |  | [optional] 
+**last_trading_date** | **char \*** |  | [optional] 
+**strike_price** | **double** |  | [optional] 
+**price_quote_unit** | **char \*** |  | [optional] 
+**qty_multiplier** | **long** |  | [optional] 
+**minimum_lot** | **long** |  | [optional] 
+**start_time** | **char \*** |  | [optional] 
+**end_time** | **char \*** |  | [optional] 
+**week_days** | **char \*** |  | [optional] 
+**general_denominator** | **double** |  | [optional] 
+**general_numerator** | **double** |  | [optional] 
+**price_numerator** | **double** |  | [optional] 
+**price_denominator** | **double** |  | [optional] 
+**mtf_enabled** | **int** |  | [optional] 
+**mtf_bracket** | **double** |  | [optional] 
+**security_type** | **char \*** |  | [optional] 
+**cas_eligible** | **int** |  | [optional] 
+
+[Back to Model list] [Back to API list] [Back to README]
+
+

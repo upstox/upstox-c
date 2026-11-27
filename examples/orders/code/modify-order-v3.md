@@ -1,0 +1,45 @@
+## Modify a delivery order
+
+Changes an open order to a LIMIT at 9.12 through the V3 (HFT) endpoint.
+
+```c
+#include <stdio.h>
+#include <string.h>
+#include "upstox_client/upstox.h"
+#include "upstox_client/api/OrderV3API.h"
+
+int main(void) {
+    apiClient_setupGlobalEnv();
+    apiClient_t *client = upstox_client_create("{your_access_token}");
+
+    int quantity = 1;
+    double price = 9.12;
+    int disclosed_quantity = 0;
+    double trigger_price = 0;
+    modify_order_request_t *body = modify_order_request_create(&quantity, upstox_client_modify_order_request_VALIDITY_DAY, &price, strdup("25030310405859"),
+                                                               upstox_client_modify_order_request_ORDERTYPE_LIMIT, &disclosed_quantity,
+                                                               &trigger_price, NULL);
+
+    modify_order_v3_response_t *resp = OrderV3API_modifyOrder(client, body, NULL);
+    if (resp == NULL) {
+        printf("Exception when calling OrderV3API_modifyOrder: HTTP %ld %s\n", client->response_code, client->errorBody ? client->errorBody : "");
+    } else {
+        if (resp->data == NULL) {
+            printf("no data returned\n");
+        } else {
+            cJSON *json = modify_order_v3_response_convertToJSON(resp);
+            char *out = cJSON_Print(json);
+            printf("%s\n", out);
+            cJSON_free(out);
+            cJSON_Delete(json);
+        }
+        modify_order_v3_response_free(resp);
+    }
+
+    modify_order_request_free(body);
+
+    apiClient_free(client);
+    apiClient_unsetupGlobalEnv();
+    return 0;
+}
+```

@@ -1,0 +1,56 @@
+/*
+ * kill_switch_segment_update_request.h
+ *
+ * 
+ */
+
+#ifndef _kill_switch_segment_update_request_H_
+#define _kill_switch_segment_update_request_H_
+
+#include <string.h>
+#include "../external/cJSON.h"
+#include "../include/list.h"
+#include "../include/keyValuePair.h"
+#include "../include/binary.h"
+
+typedef struct kill_switch_segment_update_request_t kill_switch_segment_update_request_t;
+
+
+// Enum SEGMENT for kill_switch_segment_update_request
+
+typedef enum  { upstox_client_kill_switch_segment_update_request_SEGMENT_NULL = 0, upstox_client_kill_switch_segment_update_request_SEGMENT_BSE_EQ, upstox_client_kill_switch_segment_update_request_SEGMENT_NSE_EQ, upstox_client_kill_switch_segment_update_request_SEGMENT_NCD_FO, upstox_client_kill_switch_segment_update_request_SEGMENT_BCD_FO, upstox_client_kill_switch_segment_update_request_SEGMENT_NSE_FO, upstox_client_kill_switch_segment_update_request_SEGMENT_BSE_FO, upstox_client_kill_switch_segment_update_request_SEGMENT_BSE_MF, upstox_client_kill_switch_segment_update_request_SEGMENT_MCX_FO, upstox_client_kill_switch_segment_update_request_SEGMENT_NSE_COM } upstox_client_kill_switch_segment_update_request_SEGMENT_e;
+
+char* kill_switch_segment_update_request_segment_ToString(upstox_client_kill_switch_segment_update_request_SEGMENT_e segment);
+
+upstox_client_kill_switch_segment_update_request_SEGMENT_e kill_switch_segment_update_request_segment_FromString(char* segment);
+
+// Enum ACTION for kill_switch_segment_update_request
+
+typedef enum  { upstox_client_kill_switch_segment_update_request_ACTION_NULL = 0, upstox_client_kill_switch_segment_update_request_ACTION_ENABLE, upstox_client_kill_switch_segment_update_request_ACTION_DISABLE } upstox_client_kill_switch_segment_update_request_ACTION_e;
+
+char* kill_switch_segment_update_request_action_ToString(upstox_client_kill_switch_segment_update_request_ACTION_e action);
+
+upstox_client_kill_switch_segment_update_request_ACTION_e kill_switch_segment_update_request_action_FromString(char* action);
+
+
+
+typedef struct kill_switch_segment_update_request_t {
+    upstox_client_kill_switch_segment_update_request_SEGMENT_e segment; //enum
+    upstox_client_kill_switch_segment_update_request_ACTION_e action; //enum
+
+    int _library_owned; // Is the library responsible for freeing this object?
+} kill_switch_segment_update_request_t;
+
+kill_switch_segment_update_request_t *kill_switch_segment_update_request_create(
+    upstox_client_kill_switch_segment_update_request_SEGMENT_e segment,
+    upstox_client_kill_switch_segment_update_request_ACTION_e action
+);
+
+void kill_switch_segment_update_request_free(kill_switch_segment_update_request_t *kill_switch_segment_update_request);
+
+kill_switch_segment_update_request_t *kill_switch_segment_update_request_parseFromJSON(cJSON *kill_switch_segment_update_requestJSON);
+
+cJSON *kill_switch_segment_update_request_convertToJSON(kill_switch_segment_update_request_t *kill_switch_segment_update_request);
+
+#endif /* _kill_switch_segment_update_request_H_ */
+
