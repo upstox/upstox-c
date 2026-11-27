@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 2.6...3.10.2)
-project (CGenerator C)
+project (upstox_client C)
 
 cmake_policy(SET CMP0063 NEW)
 
@@ -26,9 +26,9 @@ endif()
 set(pkgName "upstox_client")
 
 # this default version can be overridden in PreTarget.cmake
-set(PROJECT_VERSION_MAJOR 0)
+set(PROJECT_VERSION_MAJOR 1)
 set(PROJECT_VERSION_MINOR 0)
-set(PROJECT_VERSION_PATCH 1)
+set(PROJECT_VERSION_PATCH 0)
 
 if( (DEFINED CURL_INCLUDE_DIR) AND (DEFINED CURL_LIBRARIES))
     include_directories(${CURL_INCLUDE_DIR})
